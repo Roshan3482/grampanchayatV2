@@ -116,10 +116,10 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
         let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
         const position = 0;
         pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
-        pdf.save('angular-demo.pdf'); // Generated PDF
-        // setTimeout(()=>{
-        //   resolve(0);
-        // },500)
+        pdf.save('MaagniBill.pdf'); // Generated PDF
+        setTimeout(()=>{
+          resolve(0);
+        },500)
       }); 
     })
   });
