@@ -1,0 +1,55 @@
+/* styles.css or your component's CSS file */
+.sticky-header {
+  /* background: linear-gradient(to bottom, #FFC069 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #4CAF50 66.66%); */
+  background-image: linear-gradient(orange 25%, white 60%, green 98%);
+  color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* Ensure the header stays above other content */
+}
+
+.sticky-header .left-img,
+.sticky-header .right-img {
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  border: 2px solid red;
+}
+
+.sticky-header .header-text {
+  font-size: 30px;
+  text-align: center;
+}
+
+/* Add some padding to the content so it doesn't hide behind the header */
+:host {
+  display: block;
+  padding-top: 80px;
+  /* Adjust this value to match the height of your header */
+}
+
+.marquee-tag {
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+
+.sticky-marquee {
+  background-color: white;
+  color: red;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* Ensure the header stays above other content */
+}

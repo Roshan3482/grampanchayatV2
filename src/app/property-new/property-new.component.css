@@ -1,0 +1,13 @@
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.form-control-width{
+    width: 25vh;
+}
+
+th{
+    text-align: center;
+}

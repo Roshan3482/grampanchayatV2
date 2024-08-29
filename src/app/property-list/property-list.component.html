@@ -1,0 +1,319 @@
+<div class="container" style="border: 1px solid lightgray;border-radius: 1%;">
+    <div class="row">
+        <div class="col" style="background-color: lightgray;border-radius: 1%;font-size: 2vw;">
+            <br>
+            बिल भरना यादी
+            <!-- <button (click)="downloadAllPDF()">Download All</button> -->
+            <br><br>
+        </div>
+    </div>
+</div>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </div>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="अनु.क्र.">
+            <th mat-header-cell *matHeaderCellDef> अनु.क्र. </th>
+            <td mat-cell *matCellDef="let element"> {{element.anuKra}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="मालमत्ता क्रमांक">
+            <th mat-header-cell *matHeaderCellDef> मालमत्ता क्रमांक </th>
+            <td mat-cell *matCellDef="let element"> {{element.propertyNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="नाव">
+            <th mat-header-cell *matHeaderCellDef> नाव </th>
+            <td mat-cell *matCellDef="let element"> {{element.ownerName}} </td>
+        </ng-container>
+       
+        <ng-container matColumnDef="मोबाईल">
+            <th mat-header-cell *matHeaderCellDef> मोबाईल </th>
+            <td mat-cell *matCellDef="let element"> {{element.mobileNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="मालमत्ता">
+            <th mat-header-cell *matHeaderCellDef> मालमत्ता </th>
+            <td mat-cell *matCellDef="let element"> 
+                <div *ngFor="let building of element.buildings">
+                    {{building.buildingForm}} ( {{building.buildingType}} )
+                </div>    
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element"> 
+                <div *ngFor="let building of element.buildings">
+                    <!-- <button style="border: 1px solid lightgray;" (click)="generatePDF(element.anuKra, building.id)">Print ({{building.id}})</button>    
+                    &nbsp;&nbsp;&nbsp;&nbsp; -->
+                    <button style="border: 1px solid lightgray;" (click)="downloadPDF(element, building)">Print</button>    
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator> -->
+</div>
+
+
+
+
+
+
+
+  <div class="document" id="htmlData">
+    <br><br><br><br><br><br><br>
+    <!-- Left Side of the Document -->
+    <div class="page">
+        <div class="header">
+            <p>कराच्या मागणीचे बील</p>
+            <p>बिल नं. {{billNo}}</p>
+            <p>कार्यालय ग्रामपंचायत किरमोटी (भा) मौजा टेंभरी</p>
+            <p>पंचायत समिती हिंगणा जि. नागपूर</p>
+            <p>( मुंबई ग्रा. पं. कायदा १९५८ कालम १२९ अन्वये)</p>
+        </div>
+        <div class="content">
+            <p>{{name}}</p>
+            <p>यांचेकडुन</p>
+            <p>{{village}}</p>
+            <p>वार्ड नं १ घर नं १४७ प्लॉट नं. खसरा नं.- सोसायटीचे नाव मौजा टेंभरी याबद्दल</p>
+            <p>सन {{currentYear}} करीता पुढे नमुद केलेल्या रक्कमा</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>कराची नावे</th>
+                    <th>सन {{previousYear}} मागील बाकी रुपये</th>
+                    <th>सन {{currentYear}} चालू वर्ष रुपये</th>
+                    <th>एकूण रक्कम</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>घरावरील कर</td>
+                    <td>{{prevHomeTax}}</td>
+                    <td>{{currtHomeTax}}</td>
+                    <td>{{prevHomeTax + currtHomeTax}}</td>
+                </tr>
+                <tr>
+                    <td>खाली जागेचा कर</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>दिवाबत्ती कर</td>
+                    <td>{{prevElectTax}}</td>
+                    <td>{{currtElectTax}}</td>
+                    <td>{{prevElectTax + currtElectTax}}</td>
+                </tr>
+                <tr>
+                    <td>आरोग्य कर</td>
+                    <td>{{prevHealthTax}}</td>
+                    <td>{{currtHealthTax}}</td>
+                    <td>{{prevHealthTax + currtHealthTax}}</td>
+                </tr>
+                <tr>
+                    <td>सफाई कर</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>सामान्य पाणी कर</td>
+                    <td>{{prevWaterTax}}</td>
+                    <td>{{currtWaterTax}}</td>
+                    <td>{{prevWaterTax + currtWaterTax}}</td>
+                </tr>
+                <tr>
+                    <td>विशेष पाणी कर</td>
+                    <td>{{prevSpWaterTax}}</td>
+                    <td>{{currtSpWaterTax}}</td>
+                    <td>{{prevSpWaterTax + currtSpWaterTax}}</td>
+                </tr>
+                <tr>
+                    <td>उशीरा कर</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>नोटीस फी</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>अधिकाऱ्याची (वारंटी फी)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>इतर</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>एकूण</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="footer">
+            <p>वरील बिलात नमूद केलेल्या करदाखल्याच्या रकमा दि ____________ आत पा. प. चे कार्यालयात पटवून पावती घ्यावी. असे न
+                केल्यास आपले वर योग्य कारवाई करण्यात येईल.</p>
+            <div class="signatures">
+                <p class="signature">मागणी बिल मिळाल्याचाबत स्वाक्षरी</p><br>
+                <p class="signature">दिनांक:</p>
+                <p class="signature">सरपंच/सचिव</p><br />
+                <p class="signature">ग्रामपंचायत किरमोटी</p>
+            </div><br><br>
+            <div>टिप: महाराष्ट्र ग्रामपंचाय करव की मुधारणा) नियम २०१८ नुसार ३० सप्टेम्बर पर्यंत कर भरल्यास ५०
+
+                सूट देण्यात येईल</div>
+        </div>
+    </div>
+
+
+    <!-- Right Side of the Document -->
+    <div class="page">
+        <div class="header">
+            <p>कराच्या मागणीचे बील</p>
+            <p>बिल नं. {{billNo}}</p>
+            <p>कार्यालय ग्रामपंचायत किरमोटी (भा) मौजा टेंभरी</p>
+            <p>पंचायत समिती हिंगणा जि. नागपूर</p>
+            <p>( मुंबई ग्रा. पं. कायदा १९५८ कालम १२९ अन्वये)</p>
+        </div>
+        <div class="content">
+            <p>{{name}}</p>
+            <p>यांचेकडुन</p>
+            <p>{{village}}</p>
+            <p>वार्ड नं १ घर नं १४७ प्लॉट नं. खसरा नं.- सोसायटीचे नाव मौजा टेंभरी याबद्दल</p>
+            <p>सन {{currentYear}} करीता पुढे नमुद केलेल्या रक्कमा</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>कराची नावे</th>
+                    <th>सन {{previousYear}} मागील बाकी रुपये</th>
+                    <th>सन {{currentYear}} चालू वर्ष रुपये</th>
+                    <th>एकूण रक्कम</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>घरावरील कर</td>
+                    <td>{{prevHomeTax}}</td>
+                    <td>{{currtHomeTax}}</td>
+                    <td>{{prevHomeTax + currtHomeTax}}</td>
+                </tr>
+                <tr>
+                    <td>खाली जागेचा कर</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>दिवाबत्ती कर</td>
+                    <td>{{prevElectTax}}</td>
+                    <td>{{currtElectTax}}</td>
+                    <td>{{prevElectTax + currtElectTax}}</td>
+                </tr>
+                <tr>
+                    <td>आरोग्य कर</td>
+                    <td>{{prevHealthTax}}</td>
+                    <td>{{currtHealthTax}}</td>
+                    <td>{{prevHealthTax + currtHealthTax}}</td>
+                </tr>
+                <tr>
+                    <td>सफाई कर</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>सामान्य पाणी कर</td>
+                    <td>{{prevWaterTax}}</td>
+                    <td>{{currtWaterTax}}</td>
+                    <td>{{prevWaterTax + currtWaterTax}}</td>
+                </tr>
+                <tr>
+                    <td>विशेष पाणी कर</td>
+                    <td>{{prevSpWaterTax}}</td>
+                    <td>{{currtSpWaterTax}}</td>
+                    <td>{{prevSpWaterTax + currtSpWaterTax}}</td>
+                </tr>
+                <tr>
+                    <td>उशीरा कर</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>नोटीस फी</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>अधिकाऱ्याची (वारंटी फी)</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>इतर</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>एकूण</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="footer">
+            <p>वरील बिलात नमूद केलेल्या करदाखल्याच्या रकमा दि ____________ आत पा. प. चे कार्यालयात पटवून पावती घ्यावी. असे न
+                केल्यास आपले वर योग्य कारवाई करण्यात येईल.</p>
+            <div class="signatures">
+                <p class="signature">मागणी बिल मिळाल्याचाबत स्वाक्षरी</p><br>
+                <p class="signature">दिनांक:</p>
+                <p class="signature">सरपंच/सचिव</p><br />
+                <p class="signature">ग्रामपंचायत किरमोटी</p>
+            </div><br><br>
+            <div>टिप: महाराष्ट्र ग्रामपंचाय करव की मुधारणा) नियम २०१८ नुसार ३० सप्टेम्बर पर्यंत कर भरल्यास ५०
+
+                सूट देण्यात येईल</div>
+        </div>
+    </div>
+   
+</div>

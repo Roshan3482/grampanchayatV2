@@ -1,0 +1,284 @@
+<!-- <form> -->
+    <div class="container" style="border: 1px solid lightgray;border-radius: 1%;">
+        <div class="row">
+            <div class="col" style="background-color: lightgray;border-radius: 1%;font-size: 1vw;">
+                ग्राम पंचायत: खडकी
+            </div>
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="अनु. क़्र." [(ngModel)]="property.anuKra">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="वार्ड नं." [(ngModel)]="property.wardNo">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="मालमत्ता क्रं." [(ngModel)]="property.propertyNo">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="खसरा नं." [(ngModel)]="property.measlesNo">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="प्लॉट नं." [(ngModel)]="property.plotNo">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="मोबाइल नं." [(ngModel)]="property.mobileNo">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="खातेधारकाचे नाव" [(ngModel)]="property.ownerName">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="पत्नीचे नाव" [(ngModel)]="property.ownerWifeName">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="खातेधारकाचा पत्ता" [(ngModel)]="property.ownerAddress">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="भाडेकरु / भोगवटदार पुर्ण नाव" [(ngModel)]="property.renteeName">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <br>
+        <div style="overflow-x:auto;">
+            <table border>
+                <tr>
+                    <th>
+                        <button (click)="addBuilding()">Add Building</button>
+                    </th>
+                    <th><b>इमारतीचे <br> स्वरुप</b></th>
+                    <th><b>इमारतीचा <br> मजला</b></th>
+                    <th><b>इमारतीचा <br> वापर</b></th>
+                    <th><b>अंदाजे <br> आयुष्य</b></th>
+                    <th><b>क्षेत्र.लांबी <br> (चौ.फुट)</b></th>
+                    <th><b>क्षेत्र.रुंदी <br> (चौ.फुट)</b></th>
+                    <th><b>बिल्ट एरिया <br> (चौ.फुट)</b></th>
+                    <th><b>बिल्ट एरिया <br> (चौ.मी)</b></th>
+                    <th><b>घर कर <br> (मागील)</b></th>
+                    <th><b>घर कर <br> (चालू)</b></th>
+                    <th><b>वीज कर <br> (मागील)</b></th>
+                    <th><b>वीज कर <br> (चालू)</b></th>
+                    <th><b>आरोग्य कर <br> (मागील)</b></th>
+                    <th><b>आरोग्य कर <br> (चालू)</b></th>
+                    <th><b>पाणी कर <br> (मागील)</b></th>
+                    <th><b>पाणी कर <br> (चालू)</b></th>
+                    <th><b>विशेष पाणी कर <br> (मागील)</b></th>
+                    <th><b>विशेष पाणी कर <br> (चालू)</b></th>
+                    
+                </tr>
+                <tr *ngFor="let obj of property.buildings">
+                    <td></td>
+                    <td>
+                        <select class="form-select form-control-width" aria-label="Default select example" [(ngModel)]="obj.buildingForm" [ngModelOptions]="{standalone: true}">
+                            <option>-</option>
+                            <option value="झोपडी">झोपडी</option>
+                            <option value="दगड किंवा विटा घर">दगड किंवा विटा घर</option>
+                            <option value="इटरनिटी">इटरनिटी</option>
+                            <option value="आरसीसी घर">आरसीसी घर</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select form-control-width" aria-label="Default select example" [(ngModel)]="obj.buildingFloor" [ngModelOptions]="{standalone: true}">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3">4</option>
+                            <option value="3">5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select form-control-width" aria-label="Default select example" [(ngModel)]="obj.buildingType" [ngModelOptions]="{standalone: true}">
+                            <option>-</option>
+                            <option value="निवासि">निवासि</option>
+                            <option value="व्यवसाईक">व्यवसाईक</option>
+                            <option value="औद्योगिक">औद्योगिक</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-select form-control-width" aria-label="Default select example" [(ngModel)]="obj.buildingAge" [ngModelOptions]="{standalone: true}">
+                            <option *ngFor="let number of buildingAgeLimit" [value]="number">{{ number }}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="क्षेत्र.लांबी (चौ.फुट)" [(ngModel)]="obj.buildingAreaLength" (blur)="calculateBuildingBuiltAreaSqFt(obj)">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="क्षेत्र.रुंदी (चौ.फुट)" [(ngModel)]="obj.buildingAreaWidth" (blur)="calculateBuildingBuiltAreaSqFt(obj)">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="बिल्ट एरिया (चौ.फुट)" [(ngModel)]="obj.buildingBuiltAreaSqFt">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="बिल्ट एरिया (चौ.मी)" [(ngModel)]="obj.buildingBuiltAreaSqMt">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="घर कर (मागील)" [(ngModel)]="obj.homeTaxPrev">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="घर कर (चालू)" [(ngModel)]="obj.homeTaxCurnt">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="वीज कर (मागील)" [(ngModel)]="obj.electTaxPrev">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="वीज कर (चालू)" [(ngModel)]="obj.electTaxCurnt">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="आरोग्य कर (मागील)" [(ngModel)]="obj.healthTaxPrev">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="आरोग्य कर (चालू)" [(ngModel)]="obj.healthTaxCurnt">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="पाणी कर (मागील)" [(ngModel)]="obj.waterTaxPrev">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="पाणी कर (चालू)" [(ngModel)]="obj.waterTaxCurnt">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="विशेष पाणी कर (मागील)" [(ngModel)]="obj.spWaterTaxPrev">
+                    </td>
+                    <td>
+                        <input type="number" class="form-control form-control-width" placeholder="विशेष पाणी कर (चालू)" [(ngModel)]="obj.spWaterTaxCurnt">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="property.openPlotType" [ngModelOptions]="{standalone: true}">
+                        <option value="खाली जागा असल्यास">खाली जागा असल्यास</option>
+                        <option value="खाली जागा">खाली जागा</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="क्षेत्र.लांबी (चौ.फुट)" [(ngModel)]="property.areaLengthSqFt" (blur)="calculateFloor( property)">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="क्षेत्र.रुंदी (चौ.फुट)" [(ngModel)]="property.areaWidthSqFt" (blur)="calculateFloor(property)">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="खाली जागा (चौ.फुट)" [(ngModel)]="property.floorSpaceSqFt">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="खाली जागा (चौ.मी)" [(ngModel)]="property.floorSpaceSqMt">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                <b>पिण्याच्या पाण्याची व्यवस्था</b>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" [(ngModel)]="property.isPersonalTaps">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        अ. नळ
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" [(ngModel)]="property.isPublicTaps">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        ब. सार्वजनिक नळ
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" [(ngModel)]="property.isWaterOtherSource">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        क. इतर
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col">
+                <b>शौचालय</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        [value]="true" [(ngModel)]="property.isToiletAvailable">
+                    <label class="form-check-label" for="exampleRadios1">
+                        होय
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                        [value]="false" [(ngModel)]="property.isToiletAvailable">
+                    <label class="form-check-label" for="exampleRadios2">
+                        नाही
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col" style="text-align: center;">
+                <button type="submit" class="btn btn-primary" (click)="save()">साठवने</button>
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-primary" (click)="cancel()">रद्द करने</button>
+            </div>
+        </div>
+        <br>
+    </div>
+<!-- </form> -->

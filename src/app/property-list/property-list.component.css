@@ -1,0 +1,80 @@
+table {
+  width: 100%;
+}
+
+
+
+
+/************* CSS FOR PDF FILE ****************/
+
+
+.document {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page {
+  width: 48%;
+  padding: 20px;
+  border: 2px solid #000;
+  background-color: white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.content p {
+  margin: 2px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: white;
+}
+
+tfoot {
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.signature {
+  width: 45%;
+  height: 40px;
+  border-top: 1px solid #000;
+  text-align: center;
+  line-height: 40px;
+}
+/* ********************************************** */

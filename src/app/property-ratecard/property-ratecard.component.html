@@ -1,0 +1,155 @@
+<div class="container" style="border: 1px solid;">
+    <div class="row">
+        <div class="col" style="background-color: lightgray;border-radius: 1%;font-size: 1.4vw;">
+            <br>
+            <b>दर तक्ता</b>
+            <br><br>
+        </div>
+    </div>
+
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-6 col-form-label"><b style="font-size: 1.3vw;text-decoration: underline;">ग्रामपंचायतचे दर</b></label>
+        <label for="a_building_type" class="col-sm-6 col-form-label"><b style="font-size: 1.3vw;text-decoration: underline;">रेडीरेकनर दर</b></label>
+    </div>
+
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>अ. झोपडी किंवा विटा वापर मातीची इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.ga">
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>अ. झोपडी किंवा विटा वापर मातीची इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.ra">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>ब. दगड किंवा विटा वापर मातीची इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.gb">
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>ब. दगड किंवा विटा वापर मातीची इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.rb">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>क. इटरनिटी - आर.सी.सी.पध्दतीची इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.gc">
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>क. इटरनिटी - आर.सी.सी.पध्दतीची इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.rc">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>ड. आर.सी.सी.पध्दतीची इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.gd">
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>ड. आर.सी.सी.पध्दतीची इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.rd">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>विज कर</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.electricRate">
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control"  [(ngModel)]="rateCard.gaavthaan">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>आरोग्य कर</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.healthRate">
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत (खाली जागा)</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.gaavthaanKhaaliJaaga">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>सामान्य पाणी कर</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.normalWaterRate">
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>कराचा दर - इमारात</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.karachaDarEmarat">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>विशेष पाणी कर</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.specialWaterRate">
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>कराचा दर - खाली जागा</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.karachaDarKhaaliJaaga">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-2">
+           
+        </div>
+        <div class="col-sm-1"></div>
+        <!-- <label for="a_building_type" class="col-sm-3 col-form-label"><b>किन्ही</b></label> -->
+        <div class="col-sm-2">
+            <!-- <input type="number" class="form-control" [(ngModel)]="rateCard.kinhi"> -->
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-2">
+           
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>मागील वर्षं</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.previousYear">
+        </div>
+    </div>
+    <br>
+    <div class="row mb-6">
+        <label for="a_building_type" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-2">
+           
+        </div>
+        <div class="col-sm-1"></div>
+        <label for="a_building_type" class="col-sm-3 col-form-label"><b>चालू वर्षं</b></label>
+        <div class="col-sm-2">
+            <input type="number" class="form-control" [(ngModel)]="rateCard.currentYear">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col" style="text-align: center;">
+            <button type="submit" class="btn btn-primary" (click)="save()">साठवने</button>
+            &nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary" (click)="cancel()">रद्द करने</button>
+        </div>
+    </div>
+    
+</div>
