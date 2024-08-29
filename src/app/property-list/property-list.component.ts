@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef, NgZone } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { APIService } from '../utility/api.service';
@@ -20,7 +20,7 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
 
   isPDFVisible = false;
 
-  constructor(private api: APIService) { }
+  constructor(private api: APIService, private cdr: ChangeDetectorRef, private ngZone: NgZone) { }
 
   ngOnInit() {
     this.getAllPropertyList();
@@ -85,22 +85,27 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
 
 
   public downloadPDF(property:Property, building:Building) {
+    this.name = property.ownerName;
+    this.prevHomeTax = building.homeTaxPrev;
+    this.currtHomeTax = building.homeTaxCurnt;
+    this.prevElectTax = building.electTaxPrev;
+    this.currtElectTax = building.electTaxCurnt;
+    this.prevHealthTax = building.healthTaxPrev;
+    this.currtHealthTax = building.healthTaxCurnt;
+    this.prevWaterTax = building.waterTaxPrev;
+    this.currtWaterTax = building.waterTaxCurnt;
+    this.prevSpWaterTax = building.spWaterTaxPrev;
+    this.currtSpWaterTax = building.spWaterTaxCurnt;
+
+
+
+    this.cdr.detectChanges();
+    this.ngZone.runOutsideAngular(() => {
     const DATA: any = document.getElementById('htmlData');
     return new Promise((resolve, reject) => {
       html2canvas(DATA).then(canvas => {
 
-        this.name = property.ownerName;
-
-        this.prevHomeTax = building.homeTaxPrev;
-        this.currtHomeTax = building.homeTaxCurnt;
-        this.prevElectTax = building.electTaxPrev;
-        this.currtElectTax = building.electTaxCurnt;
-        this.prevHealthTax = building.healthTaxPrev;
-        this.currtHealthTax = building.healthTaxCurnt;
-        this.prevWaterTax = building.waterTaxPrev;
-        this.currtWaterTax = building.waterTaxCurnt;
-        this.prevSpWaterTax = building.spWaterTaxPrev;
-        this.currtSpWaterTax = building.spWaterTaxCurnt;
+        
 
         const imgWidth = 208;
         const pageHeight = 295;
@@ -112,10 +117,11 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
         const position = 0;
         pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
         pdf.save('angular-demo.pdf'); // Generated PDF
-        setTimeout(()=>{
-          resolve(0);
-        },500)
+        // setTimeout(()=>{
+        //   resolve(0);
+        // },500)
       }); 
     })
+  });
   }
 }
