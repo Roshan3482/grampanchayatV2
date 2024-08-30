@@ -57,6 +57,7 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
       for(let j = 0; j < this.dataSource.filteredData[i].buildings.length; j++){
         // this.generatePDF(this.dataSource.filteredData[i].anuKra, this.dataSource.filteredData[i].buildings[j].id);
         await this.downloadPDF(this.dataSource.filteredData[i], this.dataSource.filteredData[i].buildings[j]);
+        console.log(i)
         
       }
     }
