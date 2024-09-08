@@ -22,6 +22,8 @@ import { HighlightsComponent } from './highlights/highlights.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PropertyListComponent } from './property-list/property-list.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 
@@ -50,7 +52,8 @@ import { PropertyListComponent } from './property-list/property-list.component';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -69,9 +69,11 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
   billNo = "1";
   name = "Test";
   village = "Test";
+  mauja = "Village Daalna Hai";
+  malmattaKra = "            ";
 
-  currentYear = "2024-2025";
-  previousYear = "2023-2024";
+  currentYear = "24-25";
+  previousYear = "23-24";
 
   prevHomeTax = 0;
   currtHomeTax = 0;
@@ -97,6 +99,7 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
     this.currtWaterTax = building.waterTaxCurnt;
     this.prevSpWaterTax = building.spWaterTaxPrev;
     this.currtSpWaterTax = building.spWaterTaxCurnt;
+    this.malmattaKra = property.propertyNo;
 
 
 
@@ -106,17 +109,37 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
     return new Promise((resolve, reject) => {
       html2canvas(DATA).then(canvas => {
 
-        
-
-        const imgWidth = 208;
-        const pageHeight = 295;
+        const marginTop = 5; // Top margin
+        const marginBottom = 5; // Bottom margin
+        const imgWidth = 297; // A4 width in landscape mode
+        const availableHeight = 210 - marginTop - marginBottom; // Available height with margins
         const imgHeight = canvas.height * imgWidth / canvas.width;
-        const heightLeft = imgHeight;
 
-        const contentDataURL = canvas.toDataURL('image/png');
-        let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
-        const position = 0;
-        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        // Scale the image height if it exceeds the available height
+        let scaledHeight = imgHeight;
+        let scaledWidth = imgWidth;
+
+        if (imgHeight > availableHeight) {
+          scaledHeight = availableHeight;
+          scaledWidth = canvas.width * scaledHeight / canvas.height;
+        }
+
+        // Reduce space from left and right by adjusting the image width
+        const marginLeft = 5; // Adjust as needed
+        const marginRight = 5; // Adjust as needed
+
+        // Adjusted image width and height
+        const adjustedImgWidth = imgWidth - marginLeft - marginRight;
+        const adjustedImgHeight = canvas.height * adjustedImgWidth / canvas.width;
+
+        // Center the content horizontally if it's scaled down
+        const offsetX = (imgWidth - adjustedImgWidth) / 2;
+
+        let pdf = new jsPDF('landscape', 'mm', 'a4');
+
+        // Add the image with reduced margins on the sides
+        pdf.addImage(canvas.toDataURL('image/png'), 'PNG', marginLeft, marginTop, adjustedImgWidth, scaledHeight);
+
         pdf.save('MaagniBill.pdf'); // Generated PDF
         setTimeout(()=>{
           resolve(0);

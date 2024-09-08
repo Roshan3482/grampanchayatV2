@@ -4,10 +4,11 @@ import { APIService } from '../utility/api.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
+
 @Component({
   selector: 'app-property-ratecard',
   templateUrl: './property-ratecard.component.html',
-  styleUrls: ['./property-ratecard.component.css']
+  styleUrls: ['./property-ratecard.component.css'],
 })
 export class PropertyRatecardComponent implements OnInit {
 

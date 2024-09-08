@@ -1,3 +1,5 @@
+import { Village } from "./village";
+
 export class RateCard {
     ga: number;
     gb: number;
@@ -13,18 +15,15 @@ export class RateCard {
     rc: number;
     rd: number;
 
-    gaavthaan: number;
-    gaavthaanKhaaliJaaga: number;
-    karachaDarEmarat: number;
-    karachaDarKhaaliJaaga: number;
-    
     previousYear: number;
     currentYear: number;
 
-    khadki: number = 0;
-    mandwa: number = 0;
-    lakhmapur: number = 0;
-    bhansoli: number = 0;
-    kinhi: number = 0;
+    kirmitiVillege: Village = new Village();
+    kinhiVillege: Village = new Village();
+    turkmariVillege: Village = new Village();
+    tembriVillege: Village = new Village();
+    vateghatVillege: Village = new Village();
+    midcVillege: Village = new Village();
+
 }
 
