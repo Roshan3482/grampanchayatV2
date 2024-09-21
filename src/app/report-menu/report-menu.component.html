@@ -28,14 +28,14 @@
         <div class="col">
             <input type="file" (change)="onFileSelected($event)">
         </div>
-        <div class="col">
+        <div class="col" *ngIf="!isHideUploadButton">
             <div class="file-upload">
                 <button mat-mini-fab color="primary" class="upload-btn" (click)="uploadNamuna8()">
                     Upload Namuna 8
                 </button>
             </div>
         </div>
-        <div class="col">
+        <div class="col" *ngIf="!isHideUploadButton">
             <div class="file-upload">
                 <button mat-mini-fab color="primary" class="upload-btn" (click)="uploadNamuna9()">
                     Upload Namuna 9
@@ -43,6 +43,9 @@
             </div>
         </div>
 
+    </div>
+    <div class="row" style="text-align: center;">
+        <mat-spinner *ngIf="isHideUploadButton"></mat-spinner>
     </div>
 
 </div>

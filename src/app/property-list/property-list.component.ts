@@ -69,7 +69,6 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
   billNo = "1";
   name = "Test";
   village = "Test";
-  mauja = "Village Daalna Hai";
   malmattaKra = "            ";
 
   currentYear = "24-25";
@@ -100,6 +99,7 @@ export class PropertyListComponent implements OnInit, AfterViewInit {
     this.prevSpWaterTax = building.spWaterTaxPrev;
     this.currtSpWaterTax = building.spWaterTaxCurnt;
     this.malmattaKra = property.propertyNo;
+    this.village = property.village;
 
 
 

@@ -25,5 +25,7 @@ export class RateCard {
     vateghatVillege: Village = new Village();
     midcVillege: Village = new Village();
 
+    villageDTOs:Village[]=[];
+
 }
 

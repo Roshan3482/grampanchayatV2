@@ -27,4 +27,6 @@ export class Property {
 
     isToiletAvailable: boolean = true;
 
+    village:string;
+
 }

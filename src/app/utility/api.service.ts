@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export abstract class APIService {
 
-  // globalServerPath: string = "http://192.168.1.11:8080";
+  // globalServerPath: string = "http://192.168.1.7:8080";
   globalServerPath: string = "https://panchayat-production.up.railway.app";
 
   constructor(public http: HttpClient) {
@@ -25,10 +25,7 @@ export abstract class APIService {
     const formData = new FormData();
     formData.append("file", file);
     const upload$ = this.http.post(this.globalServerPath + servicePath, formData);
-    upload$.subscribe((res:any) => {
-      console.log(res);
-      alert(res.statusMsg);
-    });
+    return upload$;
   }
 
 }

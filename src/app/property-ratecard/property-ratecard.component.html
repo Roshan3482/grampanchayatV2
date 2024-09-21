@@ -146,29 +146,6 @@
     <div class="row mb-6">
 
         <mat-tab-group>
-            <mat-tab label="किरमिती">
-                <div class="row mb-6">
-                    <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत</b></label>
-                    <div class="col-sm-2">
-                        <input type="number" class="form-control"  [(ngModel)]="rateCard.kirmitiVillege.gaavthaan">
-                    </div>
-                    <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत (खाली जागा)</b></label>
-                    <div class="col-sm-2">
-                        <input type="number" class="form-control" [(ngModel)]="rateCard.kirmitiVillege.gaavthaanKhaaliJaaga">
-                    </div>
-                </div>
-                <br>
-                <div class="row mb-6">
-                    <label for="a_building_type" class="col-sm-3 col-form-label"><b>कराचा दर - इमारात</b></label>
-                    <div class="col-sm-2">
-                        <input type="number" class="form-control" [(ngModel)]="rateCard.kirmitiVillege.karachaDarEmarat">
-                    </div>
-                    <label for="a_building_type" class="col-sm-3 col-form-label"><b>कराचा दर - खाली जागा</b></label>
-                    <div class="col-sm-2">
-                        <input type="number" class="form-control" [(ngModel)]="rateCard.kirmitiVillege.karachaDarKhaaliJaaga">
-                    </div>
-                </div>
-            </mat-tab>
             <mat-tab label="किन्ही"> 
                 <div class="row mb-6">
                     <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत</b></label>
@@ -192,7 +169,30 @@
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="तुर्कमारी"> 
+            <mat-tab label="किरमटी">
+                <div class="row mb-6">
+                    <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत</b></label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control"  [(ngModel)]="rateCard.kirmitiVillege.gaavthaan">
+                    </div>
+                    <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत (खाली जागा)</b></label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control" [(ngModel)]="rateCard.kirmitiVillege.gaavthaanKhaaliJaaga">
+                    </div>
+                </div>
+                <br>
+                <div class="row mb-6">
+                    <label for="a_building_type" class="col-sm-3 col-form-label"><b>कराचा दर - इमारात</b></label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control" [(ngModel)]="rateCard.kirmitiVillege.karachaDarEmarat">
+                    </div>
+                    <label for="a_building_type" class="col-sm-3 col-form-label"><b>कराचा दर - खाली जागा</b></label>
+                    <div class="col-sm-2">
+                        <input type="number" class="form-control" [(ngModel)]="rateCard.kirmitiVillege.karachaDarKhaaliJaaga">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="तुरकमारी"> 
                 <div class="row mb-6">
                     <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत</b></label>
                     <div class="col-sm-2">
@@ -238,7 +238,7 @@
                     </div>
                 </div>
             </mat-tab>
-            <mat-tab label="वाटेघाट">
+            <mat-tab label="वटेघाट">
                 <div class="row mb-6">
                     <label for="a_building_type" class="col-sm-3 col-form-label"><b>गावठाण - इमारत</b></label>
                     <div class="col-sm-2">

@@ -21,10 +21,48 @@ table {
 }
 
 .header {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 10px;
   font-weight: bold;
 }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-content img {
+  max-width: 100px; /* Adjust the size as per your need */
+  height: auto;
+}
+
+.header-content p {
+  margin: 0; /* Remove any margin from the text */
+  text-align: center;
+  flex-grow: 1;
+}
+
+.header-text {
+  text-align: center;
+  margin-top: -22px; /* Reduce the gap between content */
+}
+
+.header img {
+  object-fit: contain; /* Ensures images fit well */
+}
+
 
 .content {
   margin-bottom: 20px;

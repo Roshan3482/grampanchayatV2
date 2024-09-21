@@ -12,6 +12,8 @@ export class ReportMenuComponent implements OnInit {
   fileName = '';
   selectedFile: File;
 
+  isHideUploadButton:boolean = false;
+
   constructor(private api: APIService) { }
 
   ngOnInit(): void {
@@ -27,11 +29,23 @@ export class ReportMenuComponent implements OnInit {
   }
 
   uploadNamuna8() {
-    this.api.uploadFile("/api/excel/upload/namuna/eight", this.selectedFile);
+    this.isHideUploadButton = true;
+    let upload = this.api.uploadFile("/api/excel/upload/namuna/eight", this.selectedFile);
+    upload.subscribe((res:any) => {
+      console.log(res);
+      alert(res.statusMsg);
+      this.isHideUploadButton = false;
+    });
   }
 
   uploadNamuna9() {
-    this.api.uploadFile("/api/excel/upload/namuna/nine", this.selectedFile);
+    this.isHideUploadButton = true;
+    let upload = this.api.uploadFile("/api/excel/upload/namuna/nine", this.selectedFile);
+    upload.subscribe((res:any) => {
+      console.log(res);
+      alert(res.statusMsg);
+      this.isHideUploadButton = false;
+    });
   }
 
 }
